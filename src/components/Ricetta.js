@@ -1,21 +1,32 @@
 import React from 'react'
-import food from '../assets/pizza.svg';
+import { useDispatch, useSelector } from 'react-redux'
+import { loadFood } from '../store/food'
+import { useEffect } from 'react'
 
 const Ricetta = () => {
+
+  const dispatch = useDispatch();
+  const foods = useSelector((state) => state.list);
+
+  useEffect(() => {
+    dispatch(loadFood());
+  }, [dispatch]);
+
   return (
     <div>
         <h2>Titolo Ricetta</h2>
         <div className="immagine">
-        <img src={food} className="pizza" alt="food" />
         </div>
         <div className="ingredienti">
-            <ul>
-                <li>Ingrediente 1</li>
-                <li>INgrediente 2</li>
-                <li>Ingrediente 3</li>
-                <li>Ingrediente 4</li>
-                <li>Ingrediente 5</li>
-            </ul>
+          {
+            foods.map((food) => {
+              return <div>
+                <p>
+                  {food.name}
+                </p>
+              </div>
+            })
+          }
         </div>
         <div className="ricetta">
             <p>Qui il testo della ricetta</p>
