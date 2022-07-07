@@ -28,7 +28,7 @@ const {
     failed
 } = slice.actions;
 
-const url = "/random";
+const url = "/";
 
 export const loadFood = () => (dispatch) => {
     return dispatch(

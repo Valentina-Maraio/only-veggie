@@ -1,21 +1,11 @@
 import './App.css';
-import {Provider} from 'react-redux'
-import Ricetta from './components/Ricetta';
-import storeFood from './store/storeFood';
-//import configureStore  from './store/configureStore';
-//import Users from './components/Users'
-
-const newstore = storeFood();
-//const store = configureStore();
-
+import Home from './comps/Home';
 
 function App() {
   return (
-    <Provider store={newstore}>
-      <header className="App-header">
-        <Ricetta />
-      </header>
-    </Provider>
+    <div>
+      <Home />
+    </div>
   );
 }
 

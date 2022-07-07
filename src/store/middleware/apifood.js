@@ -20,7 +20,7 @@ const apifood = ({dispatch}) => (next) => async(action) => {
 
     try{
         const response = await axios.request({
-            baseURL: 'https://api.spoonacular.com/recipes/complexSearch',
+            baseURL: `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=20`,
             url,
             method,
             data,
